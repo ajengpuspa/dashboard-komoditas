@@ -154,11 +154,6 @@ st.markdown(
 6. Prediksi akhir dapat digunakan untuk analisis risiko harga komoditas di masa depan.
 """
 )
-            </div>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
 
     # ---- TITLE ----
     st.markdown(
