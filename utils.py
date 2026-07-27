@@ -53,7 +53,7 @@ _CUSTOM_CSS = """
 ========================================================== */
 
 html{
-    font-size:16px;
+    font-size:18px;
 }
 
 body,
@@ -362,11 +362,12 @@ def render_sidebar():
                 unsafe_allow_html=True,
             )
 
-        st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
+        st.markdown('<div style="text-align:center;font-size:15px;font-weight:700;margin-top:8px;color:#31333F"></div>', unsafe_allow_html=True)
         st.markdown(
             "<div class='sidebar-title'>Navigasi</div>",
             unsafe_allow_html=True
         )
+        
 
         for path, label in NAV_ITEMS:
             st.page_link(path, label=label)
