@@ -47,98 +47,273 @@ def init_session_state():
 
 _CUSTOM_CSS = """
 <style>
-/* =======================
-   CARD
-======================= */
-.card{
-    background:white;
-    border:1px solid #E6E6E9;
-    border-radius:16px;
-    padding:30px;
-    height:300px;
-    display:flex;
-    flex-direction:column;
-}
-.card h3{ font-size:20px; margin-bottom:10px; }
-.card p{ font-size:15px; line-height:1.7; color:#31333F; }
 
-/* =======================
+/* ==========================================================
+   GLOBAL
+========================================================== */
+
+html{
+    font-size:16px;
+}
+
+body,
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"]{
+    background:#FFFFFF;
+    color:#31333F;
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+/* ==========================================================
+   STREAMLIT HEADER
+========================================================== */
+
+header[data-testid="stHeader"]{
+    background:#FFFFFF !important;
+    border-bottom:1px solid #E6E6E9;
+}
+
+[data-testid="stToolbar"]{
+    background:#FFFFFF !important;
+}
+
+/* ==========================================================
+   MAIN CONTAINER
+========================================================== */
+
+.block-container{
+    max-width:1400px;
+    padding:1rem 2rem 1.5rem;
+}
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+h1{
+    font-size:2.6rem !important;
+    font-weight:800 !important;
+    color:#31333F;
+    margin-bottom:.5rem;
+}
+
+h2{
+    font-size:2rem !important;
+    font-weight:700 !important;
+    color:#31333F;
+    margin-top:1.4rem;
+    margin-bottom:.6rem;
+}
+
+h3{
+    font-size:1.45rem !important;
+    font-weight:700 !important;
+    color:#31333F;
+}
+
+h4{
+    font-size:1.15rem !important;
+    font-weight:600 !important;
+    color:#31333F;
+}
+
+p,
+span,
+label,
+li{
+    font-size:15px;
+    line-height:1.7;
+    color:#31333F;
+}
+
+/* ==========================================================
+   HERO TITLE (Homepage)
+========================================================== */
+
+.hero-title{
+    display:block;
+    text-align:center;
+    font-size:44px;
+    font-weight:800;
+    line-height:1.25;
+    color:#31333F;
+}
+
+/* ==========================================================
    SIDEBAR
-======================= */
+========================================================== */
+
 section[data-testid="stSidebar"]{
-    width:290px;
-    background:#F0F2F6;
+    width:235px;
+    background:#F5F6FA;
     border-right:1px solid #E6E6E9;
 }
-section[data-testid="stSidebarContent"]{ padding:1rem; }
-section[data-testid="stSidebar"] hr{ margin:15px 0 18px; }
 
-/* Judul Navigasi */
-section[data-testid="stSidebar"] h1{
-    font-size:18px;
-    letter-spacing:.5px;
-    font-weight:700;
+section[data-testid="stSidebarContent"]{
+    padding:16px;
 }
-
-/* Hilangkan menu bawaan Streamlit */
-div[data-testid="stSidebarNav"]{ display:none; }
 
 .sidebar-divider{
     border-top:1px solid #E6E6E9;
-    margin:12px 0 18px;
+    margin:14px 0;
 }
 
-/* =======================
-   PAGE LINK
-======================= */
-div[data-testid="stPageLink"]{ margin-bottom:1px; }
-div[data-testid="stPageLink"] a{
-    padding:1px 6px;
-    border-radius:10px;
-    font-size:15px;
-    font-weight:500;
-    color:#31333F;
-    min-height:unset;
-    display:flex;
-    align-items:center;
-    gap:8px;
+div[data-testid="stSidebarNav"]{
+    display:none;
 }
-div[data-testid="stPageLink"] a:hover{ background:#E4E7ED; }
-div[data-testid="stPageLink"][aria-current="page"] a{
-    background:#FFF0EF;
-    color:#E03C3C;
-    font-weight:600;
-}
-div[data-testid="stPageLink"] svg{ width:18px; height:18px; }
 
-/* Bullet sidebar */
-div[data-testid="stPageLink"] a::before{
-    content:"•";
-    color:#8B8E98;
+.sidebar-title{
     font-size:18px;
     font-weight:700;
+    margin-bottom:10px;
 }
-div[data-testid="stPageLink"][aria-current="page"] a::before{ color:#E03C3C; }
 
-/* =======================
-   INFO BOX & CONTAINER
-======================= */
+/* ==========================================================
+   PAGE LINK
+========================================================== */
+
+div[data-testid="stPageLink"]{
+    margin-bottom:4px;
+}
+
+div[data-testid="stPageLink"] a{
+    padding:8px 10px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:500;
+    color:#31333F;
+    transition:.2s;
+}
+
+div[data-testid="stPageLink"] a:hover{
+    background:#E8ECF5;
+}
+
+div[data-testid="stPageLink"][aria-current="page"] a{
+    background:#FFF1EF;
+    color:#E84C4C;
+    font-weight:600;
+}
+
+div[data-testid="stPageLink"] a::before{
+    content:"•";
+    color:#9AA0A6;
+    margin-right:6px;
+}
+
+div[data-testid="stPageLink"][aria-current="page"] a::before{
+    color:#E84C4C;
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.card{
+    background:#FFFFFF;
+    border:1px solid #E6E6E9;
+    border-radius:16px;
+    padding:22px;
+    min-height:260px;
+}
+
+.card h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* ==========================================================
+   INFO BOX
+========================================================== */
+
 div[data-testid="stInfo"]{
     border-radius:14px;
-    border:1px solid #E5E7EB;
-    box-shadow:none;
-    padding:0.7rem 1rem;
-    font-size:15px;
-    min-height:170px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+    border:1px solid #E6E6E9;
+    padding:.8rem 1rem;
+    font-size:14px;
 }
-div[data-testid="stVerticalBlockBorderWrapper"]{ border-radius:22px; }
 
-/* Sembunyikan ikon panah bawaan st.metric */
-[data-testid="stMetricDelta"] svg{ display:none; }
+div[data-testid="stVerticalBlockBorderWrapper"]{
+    border-radius:18px;
+}
+
+/* ==========================================================
+   METRIC
+========================================================== */
+
+[data-testid="stMetricLabel"]{
+    font-size:14px !important;
+}
+
+[data-testid="stMetricValue"]{
+    font-size:28px !important;
+    font-weight:700;
+}
+
+[data-testid="stMetricDelta"]{
+    font-size:13px !important;
+}
+
+[data-testid="stMetricDelta"] svg{
+    display:none;
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.stButton button{
+    border-radius:10px;
+    font-size:14px;
+    padding:.45rem 1rem;
+}
+
+/* ==========================================================
+   INPUT
+========================================================== */
+
+.stTextInput label,
+.stSelectbox label,
+.stNumberInput label,
+.stDateInput label,
+.stRadio label,
+.stCheckbox label{
+    font-size:14px;
+    font-weight:600;
+}
+
+.stTextInput input,
+.stNumberInput input{
+    font-size:14px;
+}
+
+.stSelectbox div[data-baseweb="select"]{
+    font-size:14px;
+}
+
+/* ==========================================================
+   DATAFRAME
+========================================================== */
+
+[data-testid="stDataFrame"]{
+    font-size:14px;
+}
+
+/* ==========================================================
+   TABS
+========================================================== */
+
+button[data-baseweb="tab"]{
+    font-size:14px;
+    padding:10px 18px;
+}
+
 </style>
 """
 
@@ -188,7 +363,10 @@ def render_sidebar():
             )
 
         st.markdown('<div class="sidebar-divider"></div>', unsafe_allow_html=True)
-        st.markdown("# Navigasi")
+        st.markdown(
+            "<div class='sidebar-title'>Navigasi</div>",
+            unsafe_allow_html=True
+        )
 
         for path, label in NAV_ITEMS:
             st.page_link(path, label=label)
