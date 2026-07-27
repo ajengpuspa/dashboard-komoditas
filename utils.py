@@ -122,7 +122,7 @@ p,
 span,
 label,
 li{
-    font-size:15px;
+    font-size:13px;
     line-height:1.7;
     color:#31333F;
 }
@@ -220,12 +220,12 @@ div[data-testid="stPageLink"][aria-current="page"] a::before{
 .stMarkdown .card h3{
     font-size:28px !important;
     font-weight:700 !important;
-    margin-bottom:14px !important;
+    margin-bottom:12px !important;
     color:#31333F !important;
 }
 
 .stMarkdown .card p{
-    font-size:18px !important;
+    font-size:14px !important;
     line-height:1.8 !important;
     color:#31333F !important;
 }
