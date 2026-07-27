@@ -210,10 +210,6 @@ div[data-testid="stPageLink"][aria-current="page"] a::before{
    CARD
 ========================================================== */
 .card{
-    background:red !important;
-}
-
-.card{
     background:#FFFFFF;
     border:1px solid #E6E6E9;
     border-radius:16px;
@@ -221,14 +217,17 @@ div[data-testid="stPageLink"][aria-current="page"] a::before{
     min-height:260px;
 }
 
-.card h3{
-    font-size:20px;
-    margin-bottom:10px;
+.stMarkdown .card h3{
+    font-size:28px !important;
+    font-weight:700 !important;
+    margin-bottom:14px !important;
+    color:#31333F !important;
 }
 
-.card p{
-    font-size:15px;
-    line-height:1.7;
+.stMarkdown .card p{
+    font-size:18px !important;
+    line-height:1.8 !important;
+    color:#31333F !important;
 }
 
 /* ==========================================================
