@@ -209,6 +209,9 @@ div[data-testid="stPageLink"][aria-current="page"] a::before{
 /* ==========================================================
    CARD
 ========================================================== */
+.card{
+    background:red !important;
+}
 
 .card{
     background:#FFFFFF;
